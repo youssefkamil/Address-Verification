@@ -2,9 +2,11 @@ from flask import Flask, request, jsonify
 import Preprocessing_and_Model as pre_model
 import numpy as np
 
+# Load the model at the begining only
 global model, model_tflite, tokenizer
 model, model_tflite, tokenizer = pre_model.load_model()
 
+# __name__ represents the name of the application 
 app = Flask(__name__)
 
 @app.route('/', methods=['POST'])
